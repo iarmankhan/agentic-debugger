@@ -1,6 +1,16 @@
-# claude-debug-mcp
+# agentic-debugger
 
-An MCP (Model Context Protocol) server that enables interactive debugging with code instrumentation for Claude Code. Inspired by Cursor's debug mode.
+An MCP (Model Context Protocol) server that enables interactive debugging with code instrumentation for AI coding assistants. Inspired by Cursor's debug mode.
+
+Works with any MCP-compatible AI coding tool:
+- **Claude Code**
+- **Cursor**
+- **Windsurf**
+- **Cline**
+- **GitHub Copilot**
+- **Kiro**
+- **Zed**
+- And more...
 
 ## Features
 
@@ -14,23 +24,28 @@ An MCP (Model Context Protocol) server that enables interactive debugging with c
 
 ### Using npx (recommended)
 
-Add to your Claude Code MCP configuration (`~/.mcp.json`):
+Add to your MCP configuration:
 
 ```json
 {
   "mcpServers": {
     "debug": {
       "command": "npx",
-      "args": ["-y", "claude-debug-mcp"]
+      "args": ["-y", "agentic-debugger"]
     }
   }
 }
 ```
 
+**Configuration file locations:**
+- Claude Code: `~/.mcp.json`
+- Cursor: `.cursor/mcp.json` in your project or `~/.cursor/mcp.json`
+- Other tools: Check your tool's MCP documentation
+
 ### Global install
 
 ```bash
-npm install -g claude-debug-mcp
+npm install -g agentic-debugger
 ```
 
 Then configure:
@@ -39,7 +54,7 @@ Then configure:
 {
   "mcpServers": {
     "debug": {
-      "command": "claude-debug-mcp"
+      "command": "agentic-debugger"
     }
   }
 }
@@ -70,7 +85,7 @@ Then configure:
 ```
 You: "Help me debug why the total is NaN"
 
-Claude:
+AI Assistant:
 1. Starts debug session
 2. Reads your code to understand the logic
 3. Adds instruments at suspicious locations
@@ -78,7 +93,7 @@ Claude:
 
 You: *runs code* "Done"
 
-Claude:
+AI Assistant:
 5. Reads debug logs
 6. "I see `discount` is undefined at line 15..."
 7. Removes instruments
@@ -90,7 +105,7 @@ Claude:
 
 ### JavaScript/TypeScript
 ```javascript
-// #region claude-debug-abc123
+// #region agentic-debug-abc123
 fetch('http://localhost:9876/log', {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
@@ -101,12 +116,12 @@ fetch('http://localhost:9876/log', {
     data: { total, discount, items }
   })
 }).catch(() => {});
-// #endregion claude-debug-abc123
+// #endregion agentic-debug-abc123
 ```
 
 ### Python
 ```python
-# region claude-debug-abc123
+# region agentic-debug-abc123
 try:
     import urllib.request as __req, json as __json
     __req.urlopen(__req.Request(
@@ -120,7 +135,7 @@ try:
         headers={'Content-Type': 'application/json'}
     ))
 except: pass
-# endregion claude-debug-abc123
+# endregion agentic-debug-abc123
 ```
 
 ## Supported Languages
@@ -131,33 +146,10 @@ except: pass
 | TypeScript | `.ts`, `.tsx` |
 | Python | `.py` |
 
-## Optional: Debug Skill
-
-For automatic discovery, create a skill at `~/.claude/skills/debug/SKILL.md`:
-
-```yaml
----
-name: debug
-description: Interactive debugging with code instrumentation. Use when debugging bugs or tracing runtime values.
----
-
-# Debug Mode
-
-Use the debug MCP tools to instrument code and capture runtime values.
-
-## Workflow
-1. start_debug_session
-2. add_instrument at suspicious locations
-3. Ask user to reproduce
-4. read_debug_logs
-5. remove_instruments and fix
-6. stop_debug_session
-```
-
 ## Requirements
 
 - Node.js >= 18.0.0
-- Claude Code with MCP support
+- An MCP-compatible AI coding assistant
 
 ## License
 

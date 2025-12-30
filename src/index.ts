@@ -17,7 +17,7 @@ let instrumenter: Instrumenter | null = null;
 
 const server = new Server(
   {
-    name: 'claude-debug-mcp',
+    name: 'agentic-debugger',
     version: '1.0.0',
   },
   {
@@ -364,7 +364,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 async function main() {
   const transport = new StdioServerTransport();
   await server.connect(transport);
-  console.error('Claude Debug MCP server running');
+  console.error('Agentic Debugger MCP server running');
 }
 
 main().catch(console.error);

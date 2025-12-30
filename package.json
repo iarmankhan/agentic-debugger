@@ -1,11 +1,11 @@
 {
-  "name": "claude-debug-mcp",
+  "name": "agentic-debugger",
   "version": "1.0.0",
-  "description": "MCP server for interactive debugging with code instrumentation. Cursor-style debug mode for Claude Code.",
+  "description": "MCP server for interactive debugging with code instrumentation. Live debug mode for AI coding assistants.",
   "type": "module",
   "main": "dist/index.js",
   "bin": {
-    "claude-debug-mcp": "dist/index.js"
+    "agentic-debugger": "dist/index.js"
   },
   "scripts": {
     "build": "tsc",
@@ -18,22 +18,25 @@
     "model-context-protocol",
     "debug",
     "debugging",
-    "claude",
-    "claude-code",
+    "agentic",
+    "ai-coding",
     "instrumentation",
     "logging",
-    "anthropic"
+    "cursor",
+    "windsurf",
+    "cline",
+    "copilot"
   ],
   "author": "Arman",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/iarmankhan/claude-debug-mcp.git"
+    "url": "git+https://github.com/iarmankhan/agentic-debugger.git"
   },
   "bugs": {
-    "url": "https://github.com/iarmankhan/claude-debug-mcp/issues"
+    "url": "https://github.com/iarmankhan/agentic-debugger/issues"
   },
-  "homepage": "https://github.com/iarmankhan/claude-debug-mcp#readme",
+  "homepage": "https://github.com/iarmankhan/agentic-debugger#readme",
   "engines": {
     "node": ">=18.0.0"
   },

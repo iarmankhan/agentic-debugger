@@ -1,7 +1,7 @@
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import type { Instrument, Language } from './types.js';
 
-const REGION_PREFIX = 'claude-debug';
+const REGION_PREFIX = 'agentic-debug';
 
 export class Instrumenter {
   private port: number;
